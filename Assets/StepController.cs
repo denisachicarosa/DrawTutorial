@@ -18,10 +18,16 @@ public class StepController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Materials = Resources.LoadAll("Materials/Pikachu", typeof(Material)).Cast<Material>().ToArray();
+    
+        // Materials = Resources.LoadAll("Materials/[Folder]", typeof(Material)).Cast<Material>().ToArray(); --> template
+        // Materials = Resources.LoadAll("Materials/Pikachu", typeof(Material)).Cast<Material>().ToArray();
+        Materials = Resources.LoadAll("Materials/Dog", typeof(Material)).Cast<Material>().ToArray();
         number_of_steps = Materials.Length - 1;
         book = GameObject.Find("Quad");
         renderer = book.GetComponent<Renderer>();
+
+        // set first material
+        renderer.material = Materials[0];
     }
 
     // Update is called once per frame
