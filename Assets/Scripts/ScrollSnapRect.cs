@@ -176,6 +176,7 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
         _container.anchoredPosition = _pagePositions[aPageIndex];
         _currentPage = aPageIndex;
         _currentFolder = _pageFolder[aPageIndex];
+        PlayerPrefs.SetString("drawing", _currentFolder);
     }
 
     //------------------------------------------------------------------------
@@ -185,6 +186,7 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
         _lerp = true;
         _currentPage = aPageIndex;
         _currentFolder = _pageFolder[aPageIndex];
+        PlayerPrefs.SetString("drawing", _currentFolder);
     }
 
     //------------------------------------------------------------------------
@@ -247,6 +249,7 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
 
         _previousPageSelectionIndex = aPageIndex;
         _currentFolder = _pageFolder[aPageIndex];
+        PlayerPrefs.SetString("drawing", _currentFolder);
     }
 
     //------------------------------------------------------------------------
