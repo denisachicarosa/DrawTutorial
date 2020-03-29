@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 [RequireComponent(typeof(Image))]
 [RequireComponent(typeof(Mask))]
@@ -58,6 +60,10 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
     private int _previousPageSelectionIndex;
     // container with Image components - one Image for each page
     private List<Image> _pageSelectionImages;
+    // list with folders names
+    public List<String> _pageFolder = new List<String>();
+    // current folder name (associated with currentPage)
+    public String _currentFolder;
 
     //------------------------------------------------------------------------
     void Start() {
@@ -79,6 +85,7 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
         _lerp = false;
 
         // init
+        InitFolderNames();
         SetPagePositions();
         SetPage(startingPage);
         InitPageSelection();
@@ -168,6 +175,7 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
         aPageIndex = Mathf.Clamp(aPageIndex, 0, _pageCount - 1);
         _container.anchoredPosition = _pagePositions[aPageIndex];
         _currentPage = aPageIndex;
+        _currentFolder = _pageFolder[aPageIndex];
     }
 
     //------------------------------------------------------------------------
@@ -176,6 +184,7 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
         _lerpTo = _pagePositions[aPageIndex];
         _lerp = true;
         _currentPage = aPageIndex;
+        _currentFolder = _pageFolder[aPageIndex];
     }
 
     //------------------------------------------------------------------------
@@ -190,7 +199,7 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
             } else {
                 _previousPageSelectionIndex = -1;
                 _pageSelectionImages = new List<Image>();
-
+                
                 // cache all Image components into list
                 for (int i = 0; i < pageSelectionIcons.childCount; i++) {
                     Image image = pageSelectionIcons.GetChild(i).GetComponent<Image>();
@@ -200,6 +209,22 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
                     _pageSelectionImages.Add(image);
                 }
             }
+        }
+    }
+    
+    //------------------------------------------------------------------------
+    private void InitFolderNames()
+    {
+        List<GameObject> images = GameObject.FindGameObjectsWithTag("item").ToList();
+        for (int i = 0; i < images.Count; i++)
+        {
+            // get Child Object
+            GameObject child = images[i].transform.GetChild(0).gameObject;
+            // Get Image component
+            Image image = child.GetComponent<Image>();
+            
+            // Add its name to _pageFolder List
+            _pageFolder.Add(image.sprite.name);
         }
     }
 
@@ -221,6 +246,7 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
         _pageSelectionImages[aPageIndex].SetNativeSize();
 
         _previousPageSelectionIndex = aPageIndex;
+        _currentFolder = _pageFolder[aPageIndex];
     }
 
     //------------------------------------------------------------------------
