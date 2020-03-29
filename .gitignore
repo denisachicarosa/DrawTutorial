@@ -8,7 +8,7 @@
  obj/
  Build
  Library/
- Logs/*
+ Logs/
 
 # Ignore Editor Configuration Files
 Assets/Plugins/Editor/*
