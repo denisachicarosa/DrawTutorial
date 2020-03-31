@@ -49,6 +49,18 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GrapeCity.Documents.Common, Version=3.1.0.508, Culture=neutral, PublicKeyToken=d55d733d2bfd5065">
+      <HintPath>packages\GrapeCity.Documents.Common.3.1.0.508\lib\net461\GrapeCity.Documents.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GrapeCity.Documents.Imaging, Version=3.1.0.508, Culture=neutral, PublicKeyToken=d55d733d2bfd5065">
+      <HintPath>packages\GrapeCity.Documents.Imaging.3.1.0.508\lib\net461\GrapeCity.Documents.Imaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>packages\System.Drawing.Common.4.7.0\lib\net461\System.Drawing.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>C:\Users\Andrei\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\2018.4.18f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -57,12 +69,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\FontController.cs" />
+    <Compile Include="Assets\Scripts\AddTextToTexture.cs" />
+    <Compile Include="Assets\Scripts\FontController.cs" />
     <Compile Include="Assets\Scripts\NextScene.cs" />
-    <Compile Include="Assets\Scripts\Program.cs" />
     <Compile Include="Assets\Scripts\ScrollSnapRect.cs" />
-    <Compile Include="Assets\Scripts\SetFolder.cs" />
     <Compile Include="Assets\Scripts\StepController.cs" />
+    <Compile Include="Assets\Scripts\TextToImg.cs" />
     <Compile Include="Assets\Scripts\TextToTexture.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -135,6 +147,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="packages.config" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/D/Proiect IP/DrawTutorial/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -419,9 +432,6 @@
     </Reference>
     <Reference Include="System.Diagnostics.Tracing">
       <HintPath>C:/Users/Andrei/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Visual Studio Code/2018.4.18f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.Tracing.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Drawing.Primitives">
-      <HintPath>C:/Users/Andrei/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Visual Studio Code/2018.4.18f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Drawing.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Dynamic.Runtime">
       <HintPath>C:/Users/Andrei/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Visual Studio Code/2018.4.18f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Dynamic.Runtime.dll</HintPath>
