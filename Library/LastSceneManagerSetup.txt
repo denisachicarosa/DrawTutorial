@@ -1,10 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/GalleryScene.unity
-  isLoaded: 0
-  isActive: 0
-- path: Assets/Scenes/ARScene.unity
-  isLoaded: 0
-  isActive: 0
-- path: Assets/Scenes/TextScene.unity
+- path: Assets/Scenes/MenuScene.unity
   isLoaded: 1
   isActive: 1
