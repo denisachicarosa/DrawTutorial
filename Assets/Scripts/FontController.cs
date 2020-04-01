@@ -7,18 +7,18 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 public class FontController : MonoBehaviour
 {
-    private List<string> _fonts;
-    private List<string> _extensions;
+    public List<string> _fonts;
+    public List<string> _extensions;
     public TMP_Dropdown _dropdown;
     public TMP_InputField _textArea;
     public Button _go;
     public Camera myCamera;
     
     public GameObject objText;
-    public TextMesh textMesh;
     public Font fontResource;
 
     // Start is called before the first frame update
@@ -47,8 +47,12 @@ public class FontController : MonoBehaviour
         foreach (FileInfo file in info)
         {
             filename = Path.GetFileNameWithoutExtension(file.ToString());
-            _fonts.Add(filename);
-            _extensions.Add(Path.GetExtension(file.ToString()));
+            var ext = Path.GetExtension(file.ToString());
+            if (ext != ".meta")
+            {
+                _fonts.Add(filename);
+                _extensions.Add(ext);    
+            }
         }
         
         _dropdown.AddOptions(_fonts);
@@ -66,55 +70,59 @@ public class FontController : MonoBehaviour
         }
         else
         {
-            TextToImg._CreateImageFromText(font, text);    
+            // TextToImg._CreateImageFromText(font, text);   
+            StartDrawing(font, text);
         }
     }
 
-    // void _CreateImageFromText(string font, string text)
-    // {
-    //     WWWForm data = new WWWForm();
-    //     data.AddField("font", font);
-    //     data.AddField("text", text);
-    //     string Uri = "https://uri-to-api.com";
-    //     UnityWebRequest.Post(Uri, data);
-    //     
-    //     int imageWidth = 1240;
-    //     int imageHeight = 1754;
-    //     int fontSize = 100;
-    //
-    //     fontResource  = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Fonts/" + font, typeof(Font)) as Font;
-    //     
-    //     Texture2D output = new Texture2D(imageWidth, imageHeight);
-    //     RenderTexture renderTexture = new RenderTexture(imageWidth, imageHeight,24);
-    //     RenderTexture.active = renderTexture;
-    //     
-    //     myCamera.orthographic = true;
-    //     myCamera.orthographicSize = 100;
-    //     myCamera.targetTexture = renderTexture;
-    //     
-    //     GUIText guiText = new GUIText();
-    //     guiText.text = text;
-    //     guiText.anchor = TextAnchor.LowerLeft;
-    //     guiText.alignment = TextAlignment.Left;
-    //     guiText.lineSpacing = 1;
-    //     guiText.pixelOffset = new Vector2(50,50);
-    //     guiText.font = fontResource;
-    //     
-    //     myCamera.Render();
-    //     
-    //     output.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
-    //     output.Apply();
-    //     
-    //     RenderTexture.active = null;
-    //
-    //     // Encode texture into PNG
-    //     byte[] bytes = output.EncodeToPNG();
-    //     Object.Destroy(output);
-    //
-    //     // For testing purposes, also write to a file in the project folder
-    //     File.WriteAllBytes(Application.dataPath + "/Assets/Resources/Textures/font.png", bytes);
-    // }
-    
+    void _CreateImageFromText(string font, string text)
+    {
+        // WWWForm data = new WWWForm();
+        // data.AddField("font", font);
+        // data.AddField("text", text);
+        // string Uri = "https://uri-to-api.com";
+        // UnityWebRequest.Post(Uri, data);
+
+        StartDrawing(font, text);
+        
+        // int imageWidth = 1240;
+        // int imageHeight = 1754;
+        // int fontSize = 100;
+        //
+        // Texture2D output = new Texture2D(imageWidth, imageHeight);
+        // RenderTexture renderTexture = new RenderTexture(imageWidth, imageHeight,24);
+        // RenderTexture.active = renderTexture;
+        //
+        // myCamera.orthographic = true;
+        // myCamera.orthographicSize = 100;
+        // myCamera.targetTexture = renderTexture;
+        //
+        // TextMeshPro tmp = new TextMeshPro();
+        //
+        // tmp.text = text;
+        // tmp.material = Resources.Load<Material>("Materials/transparent");
+        // tmp.alignment = TextAlignmentOptions.Justified;
+        // tmp.lineSpacing = 1;
+        // tmp.fontSize = 56;
+        // tmp.richText = true;
+        // tmp.font = TMP_FontAsset.CreateFontAsset(fontResource);
+        //
+        // myCamera.Render();
+        //
+        // output.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
+        // output.Apply();
+        //
+        // RenderTexture.active = null;
+        //
+        // // Encode texture into PNG
+        // byte[] bytes = output.EncodeToPNG();
+        // Object.Destroy(output);
+        // Debug.Log("bytes length = " + bytes.Length);
+        //
+        // // For testing purposes, also write to a file in the project folder
+        // File.WriteAllBytes(Application.dataPath + "/Assets/Resources/Textures/font.png", bytes);
+    }
+
     private Texture2D MakeTex( int width, int height, Color col ){
         Color[] pix = new Color[width * height];
         for( int i = 0; i < pix.Length; ++i ){
@@ -126,10 +134,10 @@ public class FontController : MonoBehaviour
         return result;
     }
 
-    void StartDrawing()
+    void StartDrawing(string font, string text)
     {
-        // PlayerPrefs.SetString("font", font);
-        // PlayerPrefs.SetString("text", text);
+        PlayerPrefs.SetString("font", font);
+        PlayerPrefs.SetString("text", text);
         PlayerPrefs.SetInt("isFont", 1);
 
         SceneManager.LoadScene("ARScene");
@@ -138,5 +146,7 @@ public class FontController : MonoBehaviour
     void Destroy()
     {
         _go.onClick.RemoveListener(() => CreateImageFromText());
+        Object.Destroy(_dropdown);
+        Object.Destroy(_go);
     }
 }
