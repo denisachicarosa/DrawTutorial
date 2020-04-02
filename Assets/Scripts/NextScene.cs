@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,8 @@ using UnityEngine.UI;
 public class NextScene : MonoBehaviour
 {
     private Button go;
+
+    public String nextScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +19,7 @@ public class NextScene : MonoBehaviour
 
     void GoToNextScene()
     {
-        SceneManager.LoadScene ("ARScene");
+        SceneManager.LoadScene (nextScene);
     }
     // Update is called once per frame
     void Update()
