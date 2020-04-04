@@ -10,6 +10,9 @@ using Vuforia;
 
 public class StepController : MonoBehaviour
 {
+    private string previousScene;
+    private string currentScene;
+    
     public List<Material> Materials = null;
     
     private Renderer renderer;
@@ -26,10 +29,13 @@ public class StepController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentScene = SceneManager.GetActiveScene().name;
+        
         Materials = new List<Material>();
 
         if (PlayerPrefs.HasKey("isFont") && PlayerPrefs.GetInt("isFont") == 1)
         {
+            previousScene = "TextScene";
             _isFont = true;
             
             string font = PlayerPrefs.GetString("font");
@@ -43,6 +49,7 @@ public class StepController : MonoBehaviour
         }
         else
         {
+            previousScene = "GalleryScene";
             drawingName = PlayerPrefs.GetString("drawing");
             String path;
             path = "Materials/" + drawingName;
@@ -55,6 +62,8 @@ public class StepController : MonoBehaviour
 
         // set first material
         renderer.material = Materials[0];
+        // set previous scene
+        PlayerPrefs.SetString("previousScene", previousScene);
     }
 
     // Update is called once per frame
@@ -94,6 +103,12 @@ public class StepController : MonoBehaviour
                 }
                 // Debug.Log("number of steps = " + number_of_steps + " --- current step = " + step);
             }    
+        }
+
+        if (GUI.Button(new Rect(50, Screen.height - 90, 50, 50), 
+            (Texture) Resources.Load("Images/Logos/back_button_2"), GUIStyle.none))
+        {
+            SceneManager.LoadScene(previousScene);
         }
     }
     

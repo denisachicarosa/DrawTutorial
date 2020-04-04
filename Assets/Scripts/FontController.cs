@@ -11,6 +11,9 @@ using Object = UnityEngine.Object;
 
 public class FontController : MonoBehaviour
 {
+    private string currentScene;
+    private string previousScene = "MenuScene";
+    
     public List<string> _fonts;
     public List<string> _extensions;
     public TMP_Dropdown _dropdown;
@@ -24,6 +27,9 @@ public class FontController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentScene = SceneManager.GetActiveScene().name;
+        PlayerPrefs.SetString("previousScene", previousScene);
+        
         _dropdown = GetComponentInChildren<TMP_Dropdown>();
         _dropdown.ClearOptions();
 

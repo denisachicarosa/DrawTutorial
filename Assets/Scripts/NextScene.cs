@@ -19,11 +19,10 @@ public class NextScene : MonoBehaviour
 
     void GoToNextScene()
     {
+        // set previous scene
+        PlayerPrefs.SetString("previousScene", SceneManager.GetActiveScene().name);
+        // load new scene
         SceneManager.LoadScene (nextScene);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

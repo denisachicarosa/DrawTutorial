@@ -5,12 +5,19 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
+using UnityEditorInternal;
+using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 
 [RequireComponent(typeof(Image))]
 [RequireComponent(typeof(Mask))]
 [RequireComponent(typeof(ScrollRect))]
 public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler {
-
+    
+    private string currentScene;
+    private string previousScene = "MenuScene";
+    
     [Tooltip("Set starting page index - starting from 0")]
     public int startingPage = 0;
     [Tooltip("Threshold time for fast swipe in seconds")]
@@ -66,7 +73,10 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
     public String _currentFolder;
 
     //------------------------------------------------------------------------
-    void Start() {
+    void Start()
+    {
+        currentScene = SceneManager.GetActiveScene().name;
+
         _scrollRectComponent = GetComponent<ScrollRect>();
         _scrollRectRect = GetComponent<RectTransform>();
         _container = _scrollRectComponent.content;
@@ -97,6 +107,8 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
 
         if (prevButton)
             prevButton.GetComponent<Button>().onClick.AddListener(() => { PreviousScreen(); });
+        
+        PlayerPrefs.SetString("previousScene", previousScene);
 	}
 
     //------------------------------------------------------------------------
