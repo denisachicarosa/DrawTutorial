@@ -39,6 +39,7 @@ public class StepController : MonoBehaviour
         
             TextToImg textToImg = new TextToImg();
             Materials.Add(textToImg.createMaterial(fontResource, text));
+            PlayerPrefs.DeleteKey("isFont");
         }
         else
         {
