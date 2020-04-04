@@ -41,7 +41,7 @@ public class StepController : MonoBehaviour
             string font = PlayerPrefs.GetString("font");
             string text = PlayerPrefs.GetString("text");
             
-            Font fontResource  = AssetDatabase.LoadAssetAtPath("Assets/Fonts/" + font, typeof(Font)) as Font;
+            Font fontResource  = Resources.Load("Fonts/" + font, typeof(Font)) as Font;
         
             TextToImg textToImg = new TextToImg();
             Materials.Add(textToImg.createMaterial(fontResource, text));

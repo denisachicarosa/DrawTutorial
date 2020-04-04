@@ -2,13 +2,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine.SceneManagement;
-using Object = UnityEngine.Object;
 
 [RequireComponent(typeof(Image))]
 [RequireComponent(typeof(Mask))]

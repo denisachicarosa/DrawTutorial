@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -23,6 +20,9 @@ public class FontController : MonoBehaviour
     
     public GameObject objText;
     public Font fontResource;
+    
+    private bool submitted = false; 
+    private Rect windowRect = new Rect (0, (Screen.height)/2, Screen.width, 50);
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +45,7 @@ public class FontController : MonoBehaviour
 
     void PopulateList()
     {
-        DirectoryInfo dir = new DirectoryInfo("./Assets/Fonts");
+        DirectoryInfo dir = new DirectoryInfo("./Assets/Resources/Fonts");
         FileInfo[] info = dir.GetFiles("*.*");
         _extensions = new List<string>();
         string filename;
@@ -66,18 +66,36 @@ public class FontController : MonoBehaviour
 
     void CreateImageFromText()
     {
+        submitted = true;
         string font = _fonts[_dropdown.value] + _extensions[_dropdown.value];
         string text = _textArea.text;
         
-        if (string.IsNullOrEmpty(text))
-        {
-            // EditorGUILayout.HelpBox("Text cannot be empty!", MessageType.Error);
-            EditorUtility.DisplayDialog("You're dirty...", "Text cannot be empty!", "Ok");
-        }
-        else
+        if (!string.IsNullOrEmpty(text))
         {
             // TextToImg._CreateImageFromText(font, text);   
             StartDrawing(font, text);
+        }
+    }
+
+    private void OnGUI()
+    {
+        if (submitted && string.IsNullOrEmpty(_textArea.text))
+        {
+            GUI.backgroundColor = Color.red;
+            GUI.color = Color.white;
+            windowRect = GUI.Window(0, windowRect, DialogWindow, "Text cannot be empty!");
+        }
+    }
+    
+    // This is the actual window.
+    void DialogWindow (int windowID)
+    {
+        float height = 20;
+        float y = windowRect.height - height;
+
+        if(GUI.Button(new Rect(5, y, windowRect.width - 10, height), "Ok"))
+        {
+            submitted = false;
         }
     }
 

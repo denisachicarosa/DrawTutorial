@@ -26,7 +26,5 @@ public class BackButtonController : MonoBehaviour
             string errorMsg = "Eroare! Scena precedenta nu a fost setata!";
             throw new System.ApplicationException(errorMsg);
         }
-        
-        throw new System.NotImplementedException();
     }
 }

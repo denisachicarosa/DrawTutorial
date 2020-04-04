@@ -1,5 +1,4 @@
 ﻿using UnityEditor;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,8 +24,7 @@ public class TextToImg : MonoBehaviour
         text.text = _text;
 
         textMaterial.mainTexture = texture;
-
-        AssetDatabase.SaveAssets();
+        
         return textMaterial;
     }
 }
