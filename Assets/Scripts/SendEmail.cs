@@ -2,6 +2,8 @@
 using System.Net.Mail;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,10 +38,12 @@ public class SendEmail : MonoBehaviour
         {
             smtpServer.Send(mail);
             mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;
+            SSTools.ShowMessage("Messge send", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
         catch (System.Exception e)
         {
-            mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;
+            mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+            SSTools.ShowMessage("Error on send", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
     }
 }

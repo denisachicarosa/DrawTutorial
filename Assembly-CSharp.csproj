@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\StepController.cs" />
     <Compile Include="Assets\Scripts\Text.cs" />
     <Compile Include="Assets\Scripts\TextToTexture.cs" />
+    <Compile Include="Assets\SSTools\Scripts\SSTools.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
