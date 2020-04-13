@@ -9,10 +9,13 @@ using Object = UnityEngine.Object;
 
 [RequireComponent(typeof(Dropdown))]
 public class DropdownLanguage : MonoBehaviour
-{  
+{   public Translator script;
     public Dropdown dropdown;
+    public Button contact, info;
     void Start()
-    {
+    {   TranslateText trans = new TranslateText();
+        string raspuns = trans.translate("M-am plictisit deja");
+        //Debug.Log("MEsaj: "+raspuns);
         dropdown = GetComponent<Dropdown>();
         dropdown.ClearOptions();
         List<string> items = new List<string>();
