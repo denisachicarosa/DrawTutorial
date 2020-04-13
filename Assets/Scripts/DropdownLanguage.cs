@@ -13,12 +13,17 @@ public class DropdownLanguage : MonoBehaviour
     public Dropdown dropdown;
     public Button contact, info;
     void Start()
-    {   TranslateText trans = new TranslateText();
-        string raspuns = trans.translate("M-am plictisit deja");
+    {   
+        TranslateText trans = new TranslateText();
+        // PlayerPrefs.DeleteKey("language");
+        // string raspuns = trans.translate("M-am plictisit deja");
         //Debug.Log("MEsaj: "+raspuns);
         dropdown = GetComponent<Dropdown>();
         dropdown.ClearOptions();
         List<string> items = new List<string>();
+        if(PlayerPrefs.HasKey("language"))
+            items.Add(PlayerPrefs.GetString("language"));
+
         items.Add("English");
         items.Add("Spanish");
         items.Add("French");
@@ -29,12 +34,12 @@ public class DropdownLanguage : MonoBehaviour
         items.Add("Russian");
         items.Add("Japanese");
         items.Add("Romanian");
-        items.Sort();
+        // items.Sort();
 
         dropdown.AddOptions(items);
 
-        int index = dropdown.value;
-        PlayerPrefs.SetString("language", dropdown.options[index].text);
+        // int index = dropdown.value;
+        // PlayerPrefs.SetString("language", dropdown.options[index].text);
 
         dropdown.onValueChanged.AddListener(delegate
         {
@@ -46,6 +51,7 @@ public class DropdownLanguage : MonoBehaviour
     void selectvalue(Dropdown dropdown){
         int index = dropdown.value;
         PlayerPrefs.SetString("language", dropdown.options[index].text);
+        SceneManager.LoadScene("SettingsScene");
     }
 
     public void Contact() {

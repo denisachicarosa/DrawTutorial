@@ -32,12 +32,10 @@ using Newtonsoft.Json.Linq;
         /// </summary>
         /// <param name="text">The text to be translated.</param>
         /// <param name="result">Result callback</param>
-        public IEnumerator Run(string text, Action<TranslatedTextPair[]> result) {
-            IEnumerator v = TranslateAsync(text, result);
-            result = s => Console.WriteLine("TR :"+ s[0].translated);
-            StartCoroutine(v);
-            return v;
-             
+        public void Run(string text, Action<TranslatedTextPair[]> result) {
+            Debug.Log("Sunt in run");
+            // result = s => Console.WriteLine("TR :"+ s[0].translated);
+            StartCoroutine(TranslateAsync(text, result));
         }
 
         IEnumerator TranslateAsync(string text, Action<TranslatedTextPair[]> result) {
@@ -58,9 +56,13 @@ using Newtonsoft.Json.Linq;
                     );
                 }
                 result(results.ToArray());
+                Debug.Log("REsult: " + results.ToArray()[0].translated);
             }
             else
+            {
+                Debug.Log("Eroare pentru ca req.error nu e empty");
                 result(null);
+            }
         }
 
         void TryLog(object msg) {

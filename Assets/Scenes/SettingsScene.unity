@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1056,7 +1056,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c670883901d0434a87eb848ae113b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  script: {fileID: 0}
   dropdown: {fileID: 0}
+  contact: {fileID: 0}
+  info: {fileID: 0}
 --- !u!1 &810417833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,6 +1071,7 @@ GameObject:
   - component: {fileID: 810417834}
   - component: {fileID: 810417836}
   - component: {fileID: 810417835}
+  - component: {fileID: 810417837}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1134,6 +1138,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810417833}
   m_CullTransparentMesh: 0
+--- !u!114 &810417837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810417833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac51832d62a2d545b9c264fff386e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  response: 
+  text: {fileID: 810417835}
 --- !u!1 &900235337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,6 +1233,7 @@ GameObject:
   - component: {fileID: 959941031}
   - component: {fileID: 959941033}
   - component: {fileID: 959941032}
+  - component: {fileID: 959941034}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1281,6 +1300,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959941030}
   m_CullTransparentMesh: 0
+--- !u!114 &959941034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959941030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac51832d62a2d545b9c264fff386e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  response: 
+  text: {fileID: 959941032}
 --- !u!1 &1091902428
 GameObject:
   m_ObjectHideFlags: 0
