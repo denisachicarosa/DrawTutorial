@@ -14,7 +14,7 @@ public class DropdownLanguage : MonoBehaviour
     public Button contact, info;
     void Start()
     {   
-        TranslateText trans = new TranslateText();
+        // TranslateText trans = new TranslateText();
         // PlayerPrefs.DeleteKey("language");
         // string raspuns = trans.translate("M-am plictisit deja");
         //Debug.Log("MEsaj: "+raspuns);
