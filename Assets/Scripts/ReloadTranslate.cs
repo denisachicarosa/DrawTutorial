@@ -17,13 +17,14 @@ public class ReloadTranslate : MonoBehaviour
         var renderer = GetComponentsInChildren<Text>().ToArray();
         foreach (var t  in renderer)
         {   if(t.text == ""){
-                toTranslate += "*.";
+                toTranslate += "*. ";
             }else{
-             toTranslate += t.text + ".";
+             toTranslate += t.text + ". ";
             }
             
          
         }
+        Debug.Log("To translate: " + toTranslate);
         translate(toTranslate,renderer);
 
        
