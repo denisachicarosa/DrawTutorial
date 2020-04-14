@@ -30,6 +30,9 @@ public class Language : MonoBehaviour{
                         case "Spanish":
                                 chooseLang = "sv";
                                 break;
+                        case "Romanian":
+                                chooseLang = "ro";
+                                break;
                         default: 
                                 chooseLang = "auto";
                                 break;

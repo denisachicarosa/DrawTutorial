@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.IO;
+using System.Linq;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
@@ -14,33 +15,20 @@ public class DropdownLanguage : MonoBehaviour
     public Button contact, info;
     void Start()
     {   
-        // TranslateText trans = new TranslateText();
-        // PlayerPrefs.DeleteKey("language");
-        // string raspuns = trans.translate("M-am plictisit deja");
-        //Debug.Log("MEsaj: "+raspuns);
         dropdown = GetComponent<Dropdown>();
         dropdown.ClearOptions();
         List<string> items = new List<string>();
+        List<string> language = new List<string>{"English","Spanish","French","Italian","German","Portuguese","Russian","Japanese","Romanian"};
         if(PlayerPrefs.HasKey("language"))
             items.Add(PlayerPrefs.GetString("language"));
-
-        items.Add("English");
-        items.Add("Spanish");
-        items.Add("French");
-        items.Add("Italian");
-        items.Add("German");
-        items.Add("Portuguese");
-        items.Add("Turkish");
-        items.Add("Russian");
-        items.Add("Japanese");
-        items.Add("Romanian");
-        // items.Sort();
+        int i=0;
+        for(i=0;i<language.Count;i++){
+            if(language[i]!=PlayerPrefs.GetString("language")){
+                items.Add(language[i]);
+            }
+        }
 
         dropdown.AddOptions(items);
-
-        // int index = dropdown.value;
-        // PlayerPrefs.SetString("language", dropdown.options[index].text);
-
         dropdown.onValueChanged.AddListener(delegate
         {
             selectvalue(dropdown);
