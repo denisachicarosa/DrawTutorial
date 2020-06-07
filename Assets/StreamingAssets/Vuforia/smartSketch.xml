@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="sigla" size="0.200000 0.266835" />
+    <ImageTarget name="second_try" size="0.200000 0.184331" />
+    <ImageTarget name="imagine" size="2.000000 2.390857" />
+    <ImageTarget name="101814715_681365629107204_2162783281315875769_n" size="2.000000 2.666667" />
+    <ImageTarget name="102967215_2956470364406227_1442997390184155869_n" size="2.000000 3.795343" />
     <ImageTarget name="caiet" size="0.200000 0.266667" />
   </Tracking>
 </QCARConfig>
