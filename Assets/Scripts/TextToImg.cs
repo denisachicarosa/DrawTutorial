@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
-public class TextToImg : MonoBehaviour
+public class TextToImg
 {
     int imageWidth = 1240;
     int imageHeight = 1754;
@@ -18,11 +18,14 @@ public class TextToImg : MonoBehaviour
         Text text = GameObject.Find("TextForTexture").GetComponent<Text>();
 
         text.font = _font;
-        text.color = Color.white;
-        text.fontSize = 100;
+        text.color = Color.black;
+        text.fontSize = 250;
 
         text.text = _text;
 
+        Debug.Log("Created material: " + text.font + "\n" + text.text);
+        Debug.Log(textMaterial == null);
+        Debug.Log(texture == null);
         textMaterial.mainTexture = texture;
         
         return textMaterial;

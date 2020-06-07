@@ -67,7 +67,7 @@
     <Compile Include="Assets\Scripts\ScrollSnapRect.cs" />
     <Compile Include="Assets\Scripts\SendEmail.cs" />
     <Compile Include="Assets\Scripts\StepController.cs" />
-    <Compile Include="Assets\Scripts\Text.cs" />
+    <Compile Include="Assets\Scripts\TextToImg.cs" />
     <Compile Include="Assets\Scripts\TextToTexture.cs" />
     <Compile Include="Assets\Scripts\TranslatedTextPair.cs" />
     <Compile Include="Assets\Scripts\Translator.cs" />

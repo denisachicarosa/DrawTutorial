@@ -44,6 +44,8 @@ public class StepController : MonoBehaviour
             Font fontResource  = Resources.Load("Fonts/" + font, typeof(Font)) as Font;
         
             TextToImg textToImg = new TextToImg();
+            Debug.Log(font + "\n" + text);
+            Debug.Log(fontResource == null);
             Materials.Add(textToImg.createMaterial(fontResource, text));
             PlayerPrefs.DeleteKey("isFont");
         }
@@ -88,7 +90,7 @@ public class StepController : MonoBehaviour
     {
         // button style
         GUI.backgroundColor = Color.black;
-        GUI.color = Color.black;
+        GUI.color = Color.white;
 
         if (_isFont == false)
         {

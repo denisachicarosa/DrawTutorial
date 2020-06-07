@@ -67,7 +67,7 @@ public class FontController : MonoBehaviour
     void CreateImageFromText()
     {
         submitted = true;
-        string font = _fonts[_dropdown.value] + _extensions[_dropdown.value];
+        string font = _fonts[_dropdown.value];
         string text = _textArea.text;
         
         if (!string.IsNullOrEmpty(text))
