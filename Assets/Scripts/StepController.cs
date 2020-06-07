@@ -88,7 +88,7 @@ public class StepController : MonoBehaviour
     {
         // button style
         GUI.backgroundColor = Color.black;
-        GUI.color = Color.white;
+        GUI.color = Color.black;
 
         if (_isFont == false)
         {

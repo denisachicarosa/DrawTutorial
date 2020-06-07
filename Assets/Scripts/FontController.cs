@@ -35,7 +35,7 @@ public class FontController : MonoBehaviour
 
         _textArea = GetComponentInChildren<TMP_InputField>();
         
-        _go = GetComponentInChildren<Button>();
+        //_go = GetComponentInChildren<Button>();
         
         _fonts = new List<string>();
         
@@ -112,17 +112,17 @@ public class FontController : MonoBehaviour
         // int imageWidth = 1240;
         // int imageHeight = 1754;
         // int fontSize = 100;
-        //
+        
         // Texture2D output = new Texture2D(imageWidth, imageHeight);
         // RenderTexture renderTexture = new RenderTexture(imageWidth, imageHeight,24);
         // RenderTexture.active = renderTexture;
-        //
+        
         // myCamera.orthographic = true;
         // myCamera.orthographicSize = 100;
         // myCamera.targetTexture = renderTexture;
-        //
+        
         // TextMeshPro tmp = new TextMeshPro();
-        //
+        
         // tmp.text = text;
         // tmp.material = Resources.Load<Material>("Materials/transparent");
         // tmp.alignment = TextAlignmentOptions.Justified;
@@ -130,19 +130,19 @@ public class FontController : MonoBehaviour
         // tmp.fontSize = 56;
         // tmp.richText = true;
         // tmp.font = TMP_FontAsset.CreateFontAsset(fontResource);
-        //
+        
         // myCamera.Render();
-        //
+        
         // output.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
         // output.Apply();
-        //
+        
         // RenderTexture.active = null;
-        //
+        
         // // Encode texture into PNG
         // byte[] bytes = output.EncodeToPNG();
         // Object.Destroy(output);
         // Debug.Log("bytes length = " + bytes.Length);
-        //
+        
         // // For testing purposes, also write to a file in the project folder
         // File.WriteAllBytes(Application.dataPath + "/Assets/Resources/Textures/font.png", bytes);
     }
