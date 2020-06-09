@@ -91,10 +91,11 @@ public class StepController : MonoBehaviour
         // button style
         GUI.backgroundColor = Color.black;
         GUI.color = Color.white;
+        GUI.skin.label.fontSize = GUI.skin.box.fontSize = GUI.skin.button.fontSize = 48;
 
         if (_isFont == false)
         {
-            if (GUI.Button (new Rect(50,50,120,40), "Next Step")) {
+            if (GUI.Button (new Rect(50, 50, 250, 150), "Next Step")) {
                 mSwapModel = true;
                 GUIStyle style = new GUIStyle(GUI.skin.button);
                 foreach(PropertyDescriptor descriptor in TypeDescriptor.GetProperties(style))
@@ -107,7 +108,7 @@ public class StepController : MonoBehaviour
             }    
         }
 
-        if (GUI.Button(new Rect(50, Screen.height - 90, 50, 50), 
+        if (GUI.Button(new Rect(Screen.width - 190, 40, 150, 150), 
             (Texture) Resources.Load("Images/Logos/back_button_2"), GUIStyle.none))
         {
             SceneManager.LoadScene(previousScene);

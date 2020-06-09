@@ -45,7 +45,25 @@ public class FontController : MonoBehaviour
 
     void PopulateList()
     {
-        DirectoryInfo dir = new DirectoryInfo("./Assets/Resources/Fonts");
+        /**
+         * Because Android zip all files, we must introduce fonts names statically
+         */
+        _fonts.Add("AlexBrush-Regular");
+        _fonts.Add("Autography");
+        _fonts.Add("CAROBTN_");
+        _fonts.Add("orange-juice");
+        _fonts.Add("paperdaisy");
+        _fonts.Add("QUIGLEYW");
+        _fonts.Add("Wedgie");
+
+        /**
+         * Old Implementation
+         * Doesn't work on Android devices
+         */
+        /*
+        string fontsPath = Application.streamingAssetsPath + "/Fonts";
+        SSTools.ShowMessage(fontsPath, SSTools.Position.bottom, SSTools.Time.twoSecond);
+        DirectoryInfo dir = new DirectoryInfo(fontsPath);
         FileInfo[] info = dir.GetFiles("*.*");
         _extensions = new List<string>();
         string filename;
@@ -59,8 +77,8 @@ public class FontController : MonoBehaviour
                 _fonts.Add(filename);
                 _extensions.Add(ext);    
             }
-        }
-        
+        }*/
+
         _dropdown.AddOptions(_fonts);
     }
 
