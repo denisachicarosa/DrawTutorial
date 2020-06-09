@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class SendEmail : MonoBehaviour
 {
     public InputField recipentEmail;
@@ -15,10 +16,11 @@ public class SendEmail : MonoBehaviour
     public void Send()
     {
         // Create mail
-        MailMessage mail = new MailMessage(); 
-        // mail.From = new MailAddress("smart.sketch.services@gmail.com");
-        mail.From = new MailAddress(recipentEmail.text);
-        mail.To.Add("smart.sketch.services@gmail.com" + ", " + recipentEmail.text);
+        MailMessage mail = new MailMessage();
+        //mail.From = new MailAddress("smart.sketch.services@gmail.com");
+        string aux = recipentEmail.text;
+        mail.From = new MailAddress(aux.Trim());
+        mail.To.Add("smart.sketch.services@gmail.com");
         mail.Subject = "Eroare in aplicatie semnalata de " + recipentEmail.text;
         mail.Body = bodyMessage.text;
 
@@ -43,9 +45,9 @@ public class SendEmail : MonoBehaviour
         }
         catch (System.Exception e)
         {
+            Debug.Log(e);
             mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
-            SSTools.ShowMessage("Error! Email couldn't been sent! Please, try again later!", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            SSTools.ShowMessage("Error! Email couldn't been sent!", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
     }
-}
-
+} 

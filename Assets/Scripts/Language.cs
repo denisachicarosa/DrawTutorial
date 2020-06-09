@@ -28,7 +28,7 @@ public class Language : MonoBehaviour{
                                 chooseLang = "ru";
                                 break;
                         case "Spanish":
-                                chooseLang = "sv";
+                                chooseLang = "es";
                                 break;
                         case "Romanian":
                                 chooseLang = "ro";
