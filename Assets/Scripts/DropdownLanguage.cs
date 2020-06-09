@@ -12,7 +12,7 @@ using Object = UnityEngine.Object;
 public class DropdownLanguage : MonoBehaviour
 {   public Translator script;
     public Dropdown dropdown;
-    public Button contact, info;
+    // public Button contact, info;
     void Start()
     {   
         dropdown = GetComponent<Dropdown>();
@@ -33,7 +33,8 @@ public class DropdownLanguage : MonoBehaviour
         {
             selectvalue(dropdown);
         });
-        
+
+        PlayerPrefs.SetString("previousScene", "MenuScene");
     }
 
     void selectvalue(Dropdown dropdown){
@@ -42,10 +43,10 @@ public class DropdownLanguage : MonoBehaviour
         SceneManager.LoadScene("SettingsScene");
     }
 
-    public void Contact() {
-        SceneManager.LoadScene("FormScene"); 
-        }
-    public void AboutUs(){
-        SceneManager.LoadScene("DemoScene");
-    }
+    // public void Contact() {
+    //     SceneManager.LoadScene("FormScene"); 
+    //     }
+    // public void AboutUs(){
+    //     SceneManager.LoadScene("DemoScene");
+    // }
 }

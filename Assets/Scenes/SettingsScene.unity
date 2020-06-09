@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 446185883}
   - component: {fileID: 446185882}
   - component: {fileID: 446185881}
+  - component: {fileID: 446185884}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -459,6 +460,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446185879}
   m_CullTransparentMesh: 0
+--- !u!114 &446185884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446185879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61516aa6c298b4540bff069d4fd4aea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: DemoScene
 --- !u!1 &483750105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,8 +1074,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script: {fileID: 0}
   dropdown: {fileID: 0}
-  contact: {fileID: 0}
-  info: {fileID: 0}
 --- !u!1 &810417833
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,6 +2042,7 @@ GameObject:
   - component: {fileID: 2142402788}
   - component: {fileID: 2142402787}
   - component: {fileID: 2142402786}
+  - component: {fileID: 2142402789}
   m_Layer: 5
   m_Name: Contact
   m_TagString: Untagged
@@ -2144,3 +2157,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142402784}
   m_CullTransparentMesh: 0
+--- !u!114 &2142402789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142402784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61516aa6c298b4540bff069d4fd4aea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: FormScene
