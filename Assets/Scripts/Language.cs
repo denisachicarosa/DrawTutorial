@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Language : MonoBehaviour{
+public class Language {
         public string chooseLang;
         public string prefLang(string nameLang){
                 switch(nameLang){

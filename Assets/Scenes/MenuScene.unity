@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -199,7 +199,6 @@ GameObject:
   m_Component:
   - component: {fileID: 59185931}
   - component: {fileID: 59185934}
-  - component: {fileID: 59185933}
   - component: {fileID: 59185932}
   m_Layer: 5
   m_Name: Text
@@ -259,18 +258,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Caligraphy
---- !u!114 &59185933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59185930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac51832d62a2d545b9c264fff386e2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &59185934
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -487,7 +474,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1141972951}
   - component: {fileID: 1141972954}
-  - component: {fileID: 1141972953}
   - component: {fileID: 1141972952}
   m_Layer: 5
   m_Name: Text
@@ -547,18 +533,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Try a sketch
---- !u!114 &1141972953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141972950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac51832d62a2d545b9c264fff386e2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &1141972954
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1178,7 +1152,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1829810814}
   - component: {fileID: 1829810816}
-  - component: {fileID: 1829810817}
   - component: {fileID: 1829810815}
   m_Layer: 5
   m_Name: Text
@@ -1246,18 +1219,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829810813}
   m_CullTransparentMesh: 0
---- !u!114 &1829810817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829810813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac51832d62a2d545b9c264fff386e2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1941813995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,7 +1229,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1941813996}
   - component: {fileID: 1941813999}
-  - component: {fileID: 1941813998}
   - component: {fileID: 1941813997}
   m_Layer: 5
   m_Name: Text
@@ -1328,18 +1288,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: What do you want to do next?
---- !u!114 &1941813998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941813995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac51832d62a2d545b9c264fff386e2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &1941813999
 CanvasRenderer:
   m_ObjectHideFlags: 0
