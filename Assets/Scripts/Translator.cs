@@ -40,7 +40,10 @@ using Newtonsoft.Json.Linq;
 
         IEnumerator TranslateAsync(string text, Action<TranslatedTextPair[]> result) {
             var requestUrl = String.Format(k_Url, new object[] { m_SourceLang, m_TargetLang, text });
-            WWW req = new WWW(requestUrl);
+            Dictionary<string, string> headers = new Dictionary<string, string>();
+            headers.Add("user-agent",  "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 " + "(KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
+            WWW req = new WWW(requestUrl, null, headers);
+            Debug.Log(requestUrl);
 
             yield return req;
 
@@ -60,6 +63,7 @@ using Newtonsoft.Json.Linq;
             }
             else
             {
+                Debug.Log(req.error);
                 Debug.Log("Eroare pentru ca req.error nu e empty");
                 result(null);
             }
